@@ -3,5 +3,5 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         var overlay = document.querySelector(".overlay");
         overlay.style.display = "none";
-    }, 5000);
+    }, 2000);
 });
