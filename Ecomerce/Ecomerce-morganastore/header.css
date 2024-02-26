@@ -1,0 +1,176 @@
+@import url('https://fonts.cdnfonts.com/css/new-gothic-style');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing:border-box ;
+    font-family: 'New Gothic Style', sans-serif;                                           
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+
+header{
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffff;
+    border-bottom: 1px solid #94949450;
+    box-shadow: 0px 0px 8px #44444441;
+    height: 100px;
+    
+}
+
+header nav {
+    width: 85%;
+    margin: auto;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #333; /* Color de texto inicial para el logo */
+    font-size: 24px; /* Tamaño de la fuente para el logo */
+    transition: color 0.3s; /* Transición para el cambio de color */
+    text-transform: uppercase;
+}
+
+/* Estilo al pasar el ratón sobre el logo */
+.logo:hover {
+    color: violet; /* Nuevo color al pasar el ratón */
+}
+
+/* Ajuste para separar las letras "Morgana" y "Store" */
+.logo span {
+    font-weight: bold; /* Establece el peso de la fuente en negrita para 'Store' */
+    margin-right: 5px; /* Espaciado a la derecha para separar las letras "Morgana" y "Store" */
+}
+.nav-links {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente los enlaces */
+}
+
+.nav-links a {
+    margin: 0 10px; /* Espaciado horizontal entre enlaces */
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    font-size: 24px;
+    color: #333; /* Color de texto para los enlaces */
+    transition: color 0.3s;
+    text-transform: capitalize;
+}
+
+.nav-links a:hover {color:violet;}
+
+header nav .right-nav i{
+    color: black;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+header nav .right-nav i:hover{color: violet;}
+
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .banner .capa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .banner .capa .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .banner .capa .content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #DAA520;
+  }
+  
+  .banner .capa .content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  .banner .capa .content a {
+    font-size: 18px;
+    font-weight: bold;
+    color: #DAA520;
+    text-decoration: none;
+    border: 2px solid #DAA520;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .banner .capa .content a:hover {
+    background-color: #DAA520;
+    color: #000;
+  }
+  
+  /* Animaciones */
+  .banner .capa {
+    animation: movimiento 10s step-end;
+  }
+  
+  @keyframes movimiento {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .banner .capa .content {
+    animation: aparecer 2s ease-in-out;
+  }
+  
+  @keyframes aparecer {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Ajustes adicionales */
+  .banner .capa .content h1, .banner .capa .content p {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .banner .capa .content a {
+    border-radius: 10px;
+  }
+  
+/* 
+ productos */
+ h1 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #DAA520;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para las tarjetas de producto */
+  
