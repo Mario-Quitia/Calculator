@@ -7,7 +7,7 @@
   <link href="https://fonts.cdnfonts.com/css/new-gothic-style" rel="stylesheet">
   
   <link rel="stylesheet" href="loader.css">
-  <link rel="stylesheet" href="header.css">
+  <link rel="stylesheet" href="style.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -28,117 +28,48 @@
       <div class="right-nav">
         <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
         <a href="#"><i class="fa-regular fa-user"></i></a>
-        <a href="#"><i class="fa-solid fa-cart-arrow-down"></i></a>
+        <a href="#" id="iconoCarrito"><i class="fa-solid fa-cart-arrow-down" data-amount="0"></i></a>
+        <div id="modalCarrito" class="modal">
+            <div class="modal-content">
+              <span class="close-button">×</span>
+              <h2>Tu Carrito de Compras</h2>
+              <div id="productosEnCarrito"></div>
+              <button id="botonVaciar">Vaciar Carrito</button>
+            </div>
+          </div>
+
       </div>
     </nav>
   </header>
 
-  <!-- Banner -->
-  <div class="banner">
-    <!-- Contenido del banner -->
-    <div class="capa">
-      <div class="content">
-        <h1> Bienvenido a Morgana store</h1>
-        <p>es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen.</p>
-        <center><a href="#" class="button">Leer mas</a></center>
-      </div>
-    </div>
-  </div>
+
 
   <h1>Nuestros Productos</h1>
 
-  <section class="container">
-    <div class="products">
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>20</span>$</p>
-            </div>
-            <p class="title">Tempest Cataclysm Combo 3 En 1 Gaming Teclado</p>
-            <a href="" data-id="1" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>35</span>$</p>
-            </div>
-            <p class="title"> Newskill Suiko Ivory Teclado Mecánico Gaming Full RGB</p>
-            <a href="" class="btn-add-cart" data-id="2">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>15.50</span>$</p>
-            </div>
-            <p class="title"> Aukey KM-G16 Teclado Mecánico Gaming Retroiluminado</p>
-            <a href="" data-id="3" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>20.20</span>$</p>
-            </div>
-            <p class="title"> Razer Huntsman Elite Teclado Mecánico Gaming RGB</p>
-            <a href="" data-id="4" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>19</span>$</p>
-            </div>
-            <p class="title"> Trust GXT 856 Torac Teclado Metálico Gaming RGB</p>
-            <a href="" data-id="5" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>45</span>$</p>
-            </div>
-            <p class="title"> MSI Vigor GK30 Teclado Gaming RGB</p>
-            <a href="" data-id="6" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>23.99</span>$</p>
-            </div>
-            <p class="title"> Genesis Thor 300 RGB Teclado Mecánico Gaming RGB Switch Rojo</p>
-            <a href="" data-id="7" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>50</span>$</p>
-            </div>
-            <p class="title"> Mars Gaming MKXTKL Teclado Mecánico Gaming RGB</p>
-            <a href="" data-id="8" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>16</span>$</p>
-            </div>
-            <p class="title"> Trust GXT 881 Odyss Teclado Gaming Semi-Mecánico RGB</p>
-            <a href="" data-id="9" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>17.50</span>$</p>
-            </div>
-            <p class="title"> Krom Krusher Teclado Gaming Híbrido RGB + Ratón</p>
-            <a href="" data-id="10" class="btn-add-cart">add to cart</a>
-        </div>
-        <div class="carts">
-            <div>
-                <img src="producto1.png" alt="">
-                <p><span>45</span>$</p>
-            </div>
-            <p class="title"> Corsair K55 RGB PRO XT Teclado Gaming Retroiluminado Negro</p>
-            <a href="" data-id="11" class="btn-add-cart">add to cart</a>
+  <div class="products-container">
+    <div class="product">
+        <img src="producto1.png" alt="Producto 1">
+        <div class="product-info">
+            <h3 class="product-title">Camiseta Gótica Negra</h3>
+            <p class="product-id">ID: 001</p>
+            <p class="product-description">Descripción breve del producto, destacando sus características góticas.</p>
+            <p class="product-price">$29.99</p>
+            <button class="btn-add-cart">Agregar al Carrito</button>
         </div>
     </div>
-</section>
+    <div class="product">
+        <img src="producto2.png" alt="Producto 2">
+        <div class="product-info">
+            <h3 class="product-title">Falda Gótica Vintage</h3>
+            <p class="product-id">ID: 002</p>
+            <p class="product-description">Descripción breve de la falda, con detalles sobre el estilo y material.</p>
+            <p class="product-price">$45.99</p>
+            <button class="btn-add-cart">Agregar al Carrito</button>
+        </div>
+    </div>
+    <!-- Agrega más productos según sea necesario -->
+</div>
+
 
 <script src="loader.js"></script>
 <script src="cartshop.js"></script>

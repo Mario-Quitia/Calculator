@@ -1,55 +1,84 @@
-// Esta función es para hacer click en cualquier parte del contenedor
-let allcontainercart = document.querySelector('.products');
-let buyThings=[];
+document.addEventListener('DOMContentLoaded', function() {
+  const productsContainer = document.querySelector('.products-container');
+  productsContainer.addEventListener('click', addProduct);
 
-// Función para cargar los event listeners
+  // Consolidamos la inicialización de los oyentes de eventos
+  loadEventListeners();
+});
+
+let modal = document.getElementById("modalCarrito");
+let botonVaciar = document.getElementById("botonVaciar");
+let cerrarModal = document.querySelector('.close-button'); // Cambiado a querySelector para ser consistente
+let iconoCarrito = document.getElementById("iconoCarrito");
+let cartItems = [];
+
 function loadEventListeners() {
-    allcontainercart.addEventListener('click', addProduct);
+  iconoCarrito.addEventListener('click', (event) => {
+      event.preventDefault();
+      abrirModal();
+  });
+
+  cerrarModal.addEventListener('click', cerrarModalFuncion);
+  botonVaciar.addEventListener('click', vaciarCarrito);
 }
 
-// Llama a la función para cargar los event listeners
-loadEventListeners();
+function abrirModal() {
+  modal.style.display = "block";
+  loadHtml();
+}
+
+function cerrarModalFuncion() {
+  modal.style.display = "none";
+}
 
 function addProduct(e) {
-    e.preventDefault();
-    if (e.target.classList.contains('btn-add-cart')) {
-        // Aquí puedes realizar las acciones que desees cuando se hace clic en el botón "add to cart"
-        console.log(e.target.parentElement);
-        const selectProduct=e.target.parentElement
-       readthecontent(selectProduct);
-    }
+  e.preventDefault();
+  if (e.target.classList.contains('btn-add-cart')) {
+      const product = e.target.closest('.product');
+      getProductInfo(product);
+  }
 }
 
-function readthecontent(product) {
-    const infoproduct = {
-        Image:product.querySelector('div img').src,
-        title: product.querySelector('.title').textContent,
-        price: product.querySelector('div p span').textContent,
-        id: product.querySelector('a').getAttribute('data-id'),
-        amount:1
-    }
+function getProductInfo(product) {
+  const productInfo = {
+      image: product.querySelector('img').src,
+      title: product.querySelector('.product-title').textContent,
+      id: product.querySelector('.product-id').textContent,
+      description: product.querySelector('.product-description').textContent,
+      price: product.querySelector('.product-price').textContent,
+      quantity: 1
+  };
 
-    buyThings=[...buyThings,infoproduct]
-    loadHtml();
-    console.log(infoproduct);
-}; 
+  const exists = cartItems.findIndex(item => item.id === productInfo.id);
+  if (exists === -1) {
+      cartItems.push(productInfo);
+  } else {
+      cartItems[exists].quantity += 1;
+  }
+
+  loadHtml();
+}
 
 function loadHtml() {
-    buyThings.forEach(product => {
-        const { image, title, price, amount, id } = product;
-        const row = document.createElement('div');
-        row.classList.add('item');
-        row.innerHTML = `
-            <div class="item">
-                <img src="${image}" alt="">
-                <div class="item-content">
-                    <h5>${title}</h5>
-                    <h5 class="cart-price">${price}$</h5>
-                    <h6>Amount: ${amount}</h6>
-                </div>
-                <span class="deleteproduct">X</span>
-            </div>`;
-        // Agregar la fila al contenedor deseado (por ejemplo, un div con la clase "container")
-        document.querySelector('.container').appendChild(row);
-    });
+  const container = document.getElementById('productosEnCarrito');
+  container.innerHTML = ''; // Limpiar el contenedor
+
+  cartItems.forEach(product => {
+      const row = document.createElement('div');
+      row.innerHTML = `
+          <img src="${product.image}" width="50" alt="${product.title}">
+          <div>
+              <h4>${product.title}</h4>
+              <p>${product.description}</p>
+              <p>Precio: ${product.price}</p>
+              <p>Cantidad: ${product.quantity}</p>
+          </div>
+      `;
+      container.appendChild(row);
+  });
+}
+
+function vaciarCarrito() {
+  cartItems = [];
+  loadHtml();
 }
