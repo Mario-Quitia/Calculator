@@ -1,194 +1,192 @@
-/* Estilo básico */
+/* Reset básico para estilos por defecto del navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  font-family: 'Cinzel', serif; /* Cambia esto según la fuente que prefieras */
-  background-color: #0a0a0a; /* Fondo oscuro */
-  color: #ffffff; /* Texto claro */
+  font-family: 'Gothic A1', sans-serif; /* O una tipografía de tu elección */
+  background-color: #000; /* Fondo general negro */
+  color: #fff; /* Texto general blanco */
 }
 
 header {
-  width: 100%;
-  padding: 1rem 0;
-  background-color: #202020; /* Fondo oscuro para la cabecera */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sutil sombra para darle profundidad */
+  background-color: #000; /* Fondo negro para el header */
+  padding: 1rem 0; /* Espaciado superior e inferior para el header */
 }
 
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10%;
+  padding: 0 10%; /* Espaciado lateral para el nav */
 }
 
 .logo {
-  color: #ffffff;
-  font-size: 1.5rem;
-  text-decoration: none;
+  color: #ff0000; /* Color rojo para 'Morgana' */
+  font-size: 2rem; /* Tamaño del logotipo */
 }
 
 .logo span {
-  color: #e63946; /* Un toque de color que podría ser ajustado */
+  color: #fff; /* Color blanco para 'Store' */
 }
 
-.nav-links a, .right-nav a {
-  color: #ffffff;
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #fff;
   text-decoration: none;
-  margin: 0 15px;
+  padding: 0 1rem;
   font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff0000;
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+}
+
+.icon-link {
+  color: #fff;
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+.icon-link:hover {
+  color: #ff0000;
+}
+
+#icon-cart {
+  display: flex;
   position: relative;
 }
 
-.nav-links a:hover, .right-nav a:hover {
-  color: #e63946;
+#icon-cart i {
+  font-size: 1.5rem;
+  display: block;
 }
 
-/* Estilo para los íconos */
-.fa-solid, .fa-regular {
-  margin-right: 8px;
-}
-
-#iconoCarrito {
-  position: relative;
-}
-
-#iconoCarrito::after {
-  content: attr(data-amount);
+#count {
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  padding: 0.2em 0.4em;
   position: absolute;
   top: -10px;
   right: -10px;
-  background-color: #e63946;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
   font-size: 0.75rem;
-}
-
-.modal {
-  display: none; /* Oculto por defecto, se muestra con JavaScript */
-  position: fixed;
-  z-index: 1000; /* Asegura que el modal esté sobre otros elementos */
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto; /* Permite el desplazamiento si el contenido es grande */
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
-}
-
-.modal-content {
-  position: relative;
-  background-color: #202020; /* Fondo oscuro para el contenido del modal */
-  margin: 10% auto; /* Centra el modal en la pantalla */
-  padding: 20px;
-  border-radius: 5px; /* Bordes redondeados */
-  width: 60%; /* Ancho del modal */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6); /* Sombra para dar profundidad */
-  animation: animatetop 0.4s; /* Animación suave al abrir */
-}
-
-@keyframes animatetop {
-  from {top: -300px; opacity: 0;}
-  to {top: 0; opacity: 1;}
-}
-
-.close-button {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close-button:hover,
-.close-button:focus {
-  color: #e63946; /* Color rojo al pasar el cursor */
-  text-decoration: none;
-  cursor: pointer;
-}
-
-h2 {
-  color: #ffffff; /* Título claro */
-}
-
-#productosEnCarrito {
-  margin-top: 20px;
-}
-
-#botonVaciar {
-  background-color: #e63946; /* Botón rojo */
-  color: #ffffff; /* Texto blanco */
-  border: none;
-  padding: 10px 20px;
-  text-align: center;
-  display: inline-block;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Efecto suave al cambiar de color */
-}
-
-#botonVaciar:hover {
-  background-color: #c5283d; /* Rojo más oscuro al pasar el cursor */
-}
-
-
-
-h1 {
-  text-align: center;
-  color: #ffffff;
-}
-
-.products-container {
+  min-width: 1em;
+  height: 1em;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-  gap: 20px; /* Espacio entre las tarjetas */
+  line-height: 1;
 }
 
-.product {
-  background-color: #202020; /* Fondo de la tarjeta */
-  border: 1px solid #333; /* Borde sutil */
-  width: 250px; /* Ancho de la tarjeta */
-  overflow: hidden;
-  border-radius: 5px; /* Bordes redondeados */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
-  transition: transform 0.3s ease; /* Animación suave */
+.container {
+  display: flex; /* Usa flexbox para un mejor control del layout */
+  justify-content: space-between; /* Separa los elementos hijos */
+  padding: 20px; /* Agrega algo de espacio alrededor */
+  max-width: 1200px; /* Establece un ancho máximo para el contenedor */
+  margin: auto; /* Centra el contenedor */
 }
 
-.product:hover {
-  transform: translateY(-5px); /* Eleva la tarjeta al pasar el cursor */
+#root {
+  display: flex; /* Cambia a flex para alinear elementos horizontalmente */
+  flex-direction: row; /* Alinea los elementos de forma horizontal */
+  justify-content: space-around; /* Espacia los elementos uniformemente */
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan si no caben en una sola línea */
+  gap: 20px; /* Espacio entre productos */
 }
 
-.product img {
-  width: 100%; /* Hace que la imagen ocupe el ancho de la tarjeta */
-  height: auto;
-  object-fit: cover; /* Asegura que la imagen cubra bien el espacio asignado */
+.sidebar {
+  width: 25%; /* Ajusta según necesites */
+  padding: 20px; /* Espacio interior */
+  margin-left: 20px; /* Espacio desde el contenedor de productos */
+  background-color: #333; /* Fondo oscuro para el sidebar */
+  color: #fff; /* Texto claro */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra sutil */
 }
 
-.product-info {
-  padding: 15px;
+.foot{
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+  padding: 10px 0px;
+  border-top: 1px solid #000;
 }
 
-.product-title, .product-price {
-  color: #e63946; /* Acentos en rojo */
-}
+.box{display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+border: 1px solid #ff0000;;}
 
-.product-id, .product-description {
-  color: #aaa; /* Texto más claro para los detalles */
-}
-
-.btn-add-cart {
-  display: block;
+.img-box{
   width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #e63946; /* Botón rojo */
-  color: #ffffff;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.images{
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.bottom {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 110px;
+}
+h2{
+  font-size: 20px;
+  color: #ff0000;
+}
+button{
+  width: 100%;
+  position: relative;
   border: none;
+  border-radius: 5px;
+  background-color: #ff0000;
+  padding: 7px 25px;
   cursor: pointer;
-  transition: background-color 0.2s ease; /* Animación suave para el botón */
+  color: white;
 }
 
-.btn-add-cart:hover {
-  background-color: #c5283d; /* Color más oscuro al pasar el cursor */
+button:hover {
+  background-color: #000;
+}
+.row-img {
+  width: 80px; /* Asegura que el contenedor ocupe el ancho disponible */
+  display: flex; /* Usa flexbox para alinear elementos internos */
+  justify-content: center; /* Centra horizontalmente la imagen dentro del contenedor */
+  overflow: hidden; /* Oculta cualquier parte de la imagen que desborde el contenedor */
 }
 
-
+.rowimg {
+  max-width: 100%; /* Limita el ancho de la imagen al 100% de su contenedor */
+  height: auto; /* Ajusta la altura automáticamente para mantener las proporciones */
+  object-fit: contain; /* Asegura que la imagen se ajuste dentro del contenedor sin cortarse */
+}
 

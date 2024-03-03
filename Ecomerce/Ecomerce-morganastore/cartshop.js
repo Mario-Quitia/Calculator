@@ -1,84 +1,94 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const productsContainer = document.querySelector('.products-container');
-  productsContainer.addEventListener('click', addProduct);
+// Definición inicial de la lista de productos.
+const product = [
+  // Productos regulares
+  { id: 0, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto1.png', title: 'Ropa gótica', price: 120, category: 'Productos' },
+  { id: 1, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto2.png', title: 'Ropa gótica', price: 60, category: 'Productos' },
+  { id: 2, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 3, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto4.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 4, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 5, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto5.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  ,
+  // Productos en promoción
+  { id: 6, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/promocion1.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
+  { id: 7, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/Promocion2.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
+  { id: 8, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/promocion3.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
+  { id: 9, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/promocion4.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
+  ,
+  // Novedades
+  { id: 10, image: 'ruta/a/producto7.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' },
+  { id: 11, image: 'ruta/a/producto8.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' }
+];
 
-  // Consolidamos la inicialización de los oyentes de eventos
-  loadEventListeners();
-});
 
-let modal = document.getElementById("modalCarrito");
-let botonVaciar = document.getElementById("botonVaciar");
-let cerrarModal = document.querySelector('.close-button'); // Cambiado a querySelector para ser consistente
-let iconoCarrito = document.getElementById("iconoCarrito");
-let cartItems = [];
 
-function loadEventListeners() {
-  iconoCarrito.addEventListener('click', (event) => {
-      event.preventDefault();
-      abrirModal();
-  });
+// Extracción única de categorías de productos.
+const categories = ['Productos', 'Promociones', 'Novedades']; // Orden definido
 
-  cerrarModal.addEventListener('click', cerrarModalFuncion);
-  botonVaciar.addEventListener('click', vaciarCarrito);
-}
 
-function abrirModal() {
-  modal.style.display = "block";
-  loadHtml();
-}
 
-function cerrarModalFuncion() {
-  modal.style.display = "none";
-}
+// Carrito de compras.
+let cart = [];
 
-function addProduct(e) {
-  e.preventDefault();
-  if (e.target.classList.contains('btn-add-cart')) {
-      const product = e.target.closest('.product');
-      getProductInfo(product);
+
+// Agregar un producto al carrito.
+function addtocart(productId) {
+  const productToAdd = product.find(item => item.id === productId);
+  if (productToAdd) {
+    cart.push(productToAdd);
+    displaycart();
   }
 }
 
-function getProductInfo(product) {
-  const productInfo = {
-      image: product.querySelector('img').src,
-      title: product.querySelector('.product-title').textContent,
-      id: product.querySelector('.product-id').textContent,
-      description: product.querySelector('.product-description').textContent,
-      price: product.querySelector('.product-price').textContent,
-      quantity: 1
-  };
+// Eliminar un producto del carrito.
+function delElement(index) {
+  if (index >= 0 && index < cart.length) {
+    cart.splice(index, 1);
+    displaycart();
+  }
+}
 
-  const exists = cartItems.findIndex(item => item.id === productInfo.id);
-  if (exists === -1) {
-      cartItems.push(productInfo);
+// Mostrar el carrito de compras.
+function displaycart() {
+  document.getElementById("count").textContent = cart.length;
+  let total = cart.reduce((acc, item) => acc + item.price, 0);
+
+  if (cart.length === 0) {
+    document.getElementById('cartItem').textContent = "Tu carrito está vacío";
+    document.getElementById("total").textContent = "$ 0.00";
   } else {
-      cartItems[exists].quantity += 1;
+    document.getElementById("cartItem").innerHTML = cart.map((item, index) => `
+        <div class='cart-item'>
+            <div class='row-img'>
+                <img class='rowimg' src=${item.image}>
+            </div>
+            <p style='font-size:12px;'>${item.title}</p>
+            <h2 style='font-size: 15px;'>$ ${item.price}.00</h2>
+            <i class='fa-solid fa-trash' onclick='delElement(${index})'></i>
+        </div>
+    `).join('');
+    document.getElementById("total").textContent = `$ ${total}.00`;
   }
-
-  loadHtml();
 }
 
-function loadHtml() {
-  const container = document.getElementById('productosEnCarrito');
-  container.innerHTML = ''; // Limpiar el contenedor
-
-  cartItems.forEach(product => {
-      const row = document.createElement('div');
-      row.innerHTML = `
-          <img src="${product.image}" width="50" alt="${product.title}">
-          <div>
-              <h4>${product.title}</h4>
-              <p>${product.description}</p>
-              <p>Precio: ${product.price}</p>
-              <p>Cantidad: ${product.quantity}</p>
-          </div>
-      `;
-      container.appendChild(row);
-  });
-}
-
-function vaciarCarrito() {
-  cartItems = [];
-  loadHtml();
-}
+// Renderizado de categorías y productos en el HTML.
+window.onload = function() {
+  document.getElementById('root').innerHTML = categories.map(category => {
+    const productsInCategory = product.filter(item => item.category === category);
+    return `<div class='category' style='display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;'>
+              <h2 style='width: 100%; text-align: center;'>${category}</h2>
+              ${productsInCategory.map(item => `
+                  <div class='box'>
+                      <div class='img-box'>
+                          <img class='images' src=${item.image}></img>
+                      </div>
+                      <div class='bottom'>
+                          <p>${item.title}</p>
+                          <h2>$ ${item.price}.00</h2>
+                          <button onclick='addtocart(${item.id})'>Agregar al carrito</button>
+                      </div>
+                  </div>
+              `).join('')}
+            </div>`;
+  }).join('');
+  
+};
