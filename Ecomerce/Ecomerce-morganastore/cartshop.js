@@ -1,22 +1,22 @@
 // Definición inicial de la lista de productos.
 const product = [
   // Productos regulares
-  { id: 0, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto1.png', title: 'Ropa gótica', price: 120, category: 'Productos' },
-  { id: 1, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto2.png', title: 'Ropa gótica', price: 60, category: 'Productos' },
-  { id: 2, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
-  { id: 3, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto4.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
-  { id: 4, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
-  { id: 5, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/producto5.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
-  ,
+  { id: 0, image: '/producto1.png', title: 'Ropa gótica', price: 120, category: 'Productos' },
+  { id: 1, image: '/producto2.png', title: 'Ropa gótica', price: 60, category: 'Productos' },
+  { id: 2, image: '/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 3, image: '/producto4.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 4, image: '/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 5, image: '/producto5.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+            
   // Productos en promoción
-  { id: 6, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/promocion1.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
-  { id: 7, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/Promocion2.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
-  { id: 8, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/promocion3.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
-  { id: 9, image: 'C:/Documentos/Proyectos/Ecomerce/Ecomerce-morganastore/promocion4.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
-  ,
+  { id: 6, image: '/promocion1.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
+  { id: 7, image: '/Promocion2.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
+  { id: 8, image: '/promocion3.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
+  { id: 9, image: '/promocion4.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
+
   // Novedades
-  { id: 10, image: 'ruta/a/producto7.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' },
-  { id: 11, image: 'ruta/a/producto8.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' }
+  { id: 10, image: '/producto7.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' },
+  { id: 11, image: '/producto8.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' }
 ];
 
 
