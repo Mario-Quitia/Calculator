@@ -15,8 +15,8 @@ const product = [
   { id: 9, image: '/promocion4.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
 
   // Novedades
-  { id: 10, image: '/producto7.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' },
-  { id: 11, image: '/producto8.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' }
+  { id: 10, image: '/novedades1.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' },
+  { id: 11, image: '/novedades2.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' }
 ];
 
 
@@ -73,8 +73,10 @@ function displaycart() {
 // Renderizado de categorías y productos en el HTML.
 window.onload = function() {
   document.getElementById('root').innerHTML = categories.map(category => {
+    // Usar el nombre de la categoría como ID, reemplazando espacios con guiones si es necesario
+    const categoryId = category.replace(/\s+/g, '-').toLowerCase();
     const productsInCategory = product.filter(item => item.category === category);
-    return `<div class='category' style='display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;'>
+    return `<div id='${categoryId}' class='category' style='display: flex; flex-direction: row; justify-content: space-around; flex-wrap: wrap;'>
               <h2 style='width: 100%; text-align: center;'>${category}</h2>
               ${productsInCategory.map(item => `
                   <div class='box'>
@@ -90,5 +92,5 @@ window.onload = function() {
               `).join('')}
             </div>`;
   }).join('');
-  
 };
+
