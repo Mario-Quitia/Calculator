@@ -1,7 +1,7 @@
 // Definición inicial de la lista de productos.
 const product = [
   // Productos regulares
-  { id: 0, image: '/producto1.png', title: 'Ropa gótica', price: 120, category: 'Productos' },
+  { id: 0, image: './producto1.png', title: 'Ropa gótica', price: 120, category: 'Productos' },
   { id: 1, image: '/producto2.png', title: 'Ropa gótica', price: 60, category: 'Productos' },
   { id: 2, image: '/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
   { id: 3, image: '/producto4.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
@@ -19,6 +19,8 @@ const product = [
   { id: 11, image: '/novedades2.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' }
 ];
 
+const loginButton = document.getElementById("loginButton");
+const loginModal = document.getElementById("loginModal");
 
 
 // Extracción única de categorías de productos.
@@ -94,3 +96,24 @@ window.onload = function() {
   }).join('');
 };
 
+
+
+// Cuando se hace clic en el botón de inicio de sesión, muestra el modal de inicio de sesión
+loginButton.addEventListener("click", function() {
+  loginModal.style.display = "block";
+});
+
+// Cuando se hace clic en el botón de cerrar del modal, cierra el modal
+const closeButtons = document.getElementsByClassName("close");
+for (let i = 0; i < closeButtons.length; i++) {
+  closeButtons[i].addEventListener("click", function() {
+    loginModal.style.display = "none";
+  });
+}
+
+// Cuando el usuario hace clic fuera del modal, cierra el modal
+window.addEventListener("click", function(event) {
+  if (event.target == loginModal) {
+    loginModal.style.display = "none";
+  }
+});
