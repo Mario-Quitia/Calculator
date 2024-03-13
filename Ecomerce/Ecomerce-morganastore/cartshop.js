@@ -1,22 +1,22 @@
 // Definición inicial de la lista de productos.
 const product = [
   // Productos regulares
+  { id: 3, image: './producto4.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 4, image: './producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 5, image: './producto5.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
   { id: 0, image: './producto1.png', title: 'Ropa gótica', price: 120, category: 'Productos' },
-  { id: 1, image: '/producto2.png', title: 'Ropa gótica', price: 60, category: 'Productos' },
-  { id: 2, image: '/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
-  { id: 3, image: '/producto4.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
-  { id: 4, image: '/producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
-  { id: 5, image: '/producto5.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
+  { id: 1, image: './producto2.png', title: 'Ropa gótica', price: 60, category: 'Productos' },
+  { id: 2, image: './producto3.png', title: 'Ropa gótica', price: 230, category: 'Productos' },
             
   // Productos en promoción
-  { id: 6, image: '/promocion1.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
-  { id: 7, image: '/Promocion2.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
-  { id: 8, image: '/promocion3.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
-  { id: 9, image: '/promocion4.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
+  { id: 6, image: './promocion1.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
+  { id: 7, image: './Promocion2.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
+  { id: 8, image: './promocion3.png', title: 'Ropa gótica en promoción', price: 80, category: 'Promociones' },
+  { id: 9, image: './promocion4.png', title: 'Ropa gótica en promoción', price: 50, category: 'Promociones' },
 
   // Novedades
-  { id: 10, image: '/novedades1.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' },
-  { id: 11, image: '/novedades2.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' }
+  { id: 10, image: './novedades1.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' },
+  { id: 11, image: './novedades2.png', title: 'Ropa gótica nueva', price: 50, category: 'Novedades' }
 ];
 
 const loginButton = document.getElementById("loginButton");
